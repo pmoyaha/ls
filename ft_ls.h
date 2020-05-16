@@ -52,7 +52,7 @@ void			ft_del_n(t_long **alst);
 void			ft_del_l(t_long **alst);
 void			ft_addnames(t_long **lst, t_long *nlst);
 void			ft_err(t_long **lst, char *path);
-char			*ft_checkflag(int ac, char **av);
+char			*ft_checkflag(int ac, char **av, char *rc);
 char			*ft_joint(char *s1, char *s2, char *s3);
 char			ft_type(struct stat buff);
 int				ft_cmp(const char *s1, const char *s2);
