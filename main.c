@@ -31,6 +31,7 @@ static void	ft_paths(int ac, char **av, char *flags)
 	i = 1;
 	lst = NULL;
 	plst = NULL;
+	ft_putendl("hey");
 	while (av[i] != NULL && av[i][0] == '-' && ac > i)
 		i++;		
 	while (av[i] != NULL)
@@ -56,9 +57,18 @@ int			main(int ac, char **av)
 {
 	char	*flags;
 	int		i;
+	char	wrongchar;
 
 	i = 1;
-	flags = ft_checkflag(ac, av);
+	wrongchar = '\0';
+	flags = ft_checkflag(ac, av, &wrongchar);
+	if (wrongchar != '\0')
+	{
+		ft_putstr("ft_ls: invalid option -- '");
+		ft_putchar(wrongchar);
+		ft_putendl("'\nTry 'ft_ls --help' for more information.");
+		return (1);
+	}
 	while (av[i] != NULL && av[i][0] == '-' && ac > i)
 		i++;
 	if (av[i] == NULL)
